@@ -13,9 +13,14 @@ use Spryker\Glue\Kernel\Container;
 
 class HelloBackendRestApiDependencyProvider extends AbstractBundleDependencyProvider
 {
-    //@todo overwrite bundle dependency provider
+    /** @var string */
     public const FACADE_HEALTH_CHECK = 'FACADE_HEALTH_CHECK';
 
+    /**
+     * @param Container $container
+     *
+     * @return Container
+     */
     public function provideDependencies(Container $container)
     {
         $container = parent::provideDependencies($container);
@@ -24,6 +29,11 @@ class HelloBackendRestApiDependencyProvider extends AbstractBundleDependencyProv
         return $container;
     }
 
+    /**
+     * @param Container $container
+     *
+     * @return Container
+     */
     protected function addHealthFacade(Container $container)
     {
         $container->set(static::FACADE_HEALTH_CHECK, function (BackendContainer $container) {
@@ -32,5 +42,4 @@ class HelloBackendRestApiDependencyProvider extends AbstractBundleDependencyProv
 
         return $container;
     }
-
 }
