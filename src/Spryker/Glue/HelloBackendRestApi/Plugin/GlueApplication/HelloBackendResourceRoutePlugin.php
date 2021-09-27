@@ -14,6 +14,17 @@ use Spryker\Glue\Kernel\AbstractPlugin;
 class HelloBackendResourceRoutePlugin extends AbstractPlugin implements ResourceRoutePluginInterface
 {
     /**
+     * @return callable
+     */
+    public function getResource(): callable
+    {
+        return [
+            $this->getControllerClass(),
+            $this->getAction(),
+        ];
+    }
+
+    /**
      * @return string
      */
     public function getControllerClass(): string
